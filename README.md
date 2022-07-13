@@ -2,7 +2,7 @@
 
 # Better Auto Start
 
-## NOTE: This version of the mod requires BTD6 Mod Helper >v3.0 and MelonLoader >v0.6
+## NOTE: This alpha version of the mod requires BTD6 Mod Helper >v3.0, see [here](https://github.com/doombubbles/BTD6-Mods#readme) for the stable mods
 
 This mod adds a visual indicator on the Play / Fast Forward button to show whether Auto Start is enabled or disabled.
 Additionally, right clicking on the button will toggle Auto Start.
