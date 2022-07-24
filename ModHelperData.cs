@@ -2,7 +2,7 @@
 
 public class ModHelperData
 {
-    public const string Version = "1.0.4";
+    public const string Version = "1.1.0";
     public const string Name = "Better Auto Start";
 
     public const string Description =
