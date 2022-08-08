@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Unity.Bridge;
+﻿using Assets.Scripts.Models.Profile;
+using Assets.Scripts.Unity;
+using Assets.Scripts.Unity.Bridge;
 using Assets.Scripts.Unity.UI_New.InGame;
 using Assets.Scripts.Unity.UI_New.InGame.ActionMenu;
 using Assets.Scripts.Unity.UI_New.InGame.RightMenu;
@@ -19,9 +21,9 @@ namespace BetterAutoStart;
 
 public class BetterAutoStartMod : BloonsTD6Mod
 {
-    private static void UpdateTextures(GoFastForwardToggle toggle)
+    private static void UpdateTextures(GoFastForwardToggle toggle, bool enabled)
     {
-        if (InGame.instance.UnityToSimulation.simulation.autoPlay)
+        if (enabled)
         {
             toggle.goImage.GetComponent<Image>()
                 .SetSprite(ModContent.GetSprite<BetterAutoStartMod>("GoBtn")!);
@@ -38,15 +40,15 @@ public class BetterAutoStartMod : BloonsTD6Mod
         }
     }
 
-    [HarmonyPatch(typeof(UnityToSimulation), nameof(UnityToSimulation.ToggleAutoPlay))]
+    [HarmonyPatch(typeof(UnityToSimulation), nameof(UnityToSimulation.SetAutoPlay))]
     internal static class UnityToSimulation_ToggleAutoPlay
     {
         [HarmonyPostfix]
-        private static void Postfix()
+        private static void Postfix(bool on)
         {
             if (ShopMenu.instance != null && ShopMenu.instance.goFFToggle != null)
             {
-                UpdateTextures(ShopMenu.instance.goFFToggle);
+                UpdateTextures(ShopMenu.instance.goFFToggle, on);
             }
         }
     }
@@ -57,7 +59,7 @@ public class BetterAutoStartMod : BloonsTD6Mod
         [HarmonyPostfix]
         private static void Postfix(GoFastForwardToggle __instance)
         {
-            UpdateTextures(__instance);
+            UpdateTextures(__instance, Game.instance.GetPlayerProfile().inGameSettings.autoPlay);
         }
     }
 
@@ -71,7 +73,9 @@ public class BetterAutoStartMod : BloonsTD6Mod
                 eventData.button == PointerEventData.InputButton.Right &&
                 __instance.name == "FastFoward-Go") //yes this is a real typo in the name
             {
-                InGame.instance.bridge.ToggleAutoPlay(!InGame.instance.UnityToSimulation.simulation.autoPlay);
+                var newValue = !InGame.instance.UnityToSimulation.simulation.autoPlay;
+                Game.instance.GetPlayerProfile().inGameSettings.autoPlay = newValue;
+                InGame.instance.bridge.SetAutoPlay(newValue);
             }
         }
     }
