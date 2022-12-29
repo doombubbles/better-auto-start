@@ -1,9 +1,8 @@
-﻿using Assets.Scripts.Models.Profile;
-using Assets.Scripts.Unity;
-using Assets.Scripts.Unity.Bridge;
-using Assets.Scripts.Unity.UI_New.InGame;
-using Assets.Scripts.Unity.UI_New.InGame.ActionMenu;
-using Assets.Scripts.Unity.UI_New.InGame.RightMenu;
+﻿using Il2CppAssets.Scripts.Unity;
+using Il2CppAssets.Scripts.Unity.Bridge;
+using Il2CppAssets.Scripts.Unity.UI_New.InGame;
+using Il2CppAssets.Scripts.Unity.UI_New.InGame.ActionMenu;
+using Il2CppAssets.Scripts.Unity.UI_New.InGame.RightMenu;
 using BetterAutoStart;
 using BTD_Mod_Helper;
 using BTD_Mod_Helper.Api;
