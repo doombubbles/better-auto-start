@@ -70,9 +70,9 @@ public class BetterAutoStartMod : BloonsTD6Mod
         {
             if (InGame.instance != null &&
                 eventData.button == PointerEventData.InputButton.Right &&
-                __instance.name == "FastFoward-Go") //yes this is a real typo in the name
+                __instance.name == "FastFoward-Go") // yes this is a real typo in the name
             {
-                var newValue = !InGame.instance.UnityToSimulation.simulation.autoPlay;
+                var newValue = !InGame.Bridge.simulation.autoPlay;
                 Game.instance.GetPlayerProfile().inGameSettings.autoPlay = newValue;
                 InGame.instance.bridge.SetAutoPlay(newValue);
             }
