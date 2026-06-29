@@ -1,2 +1,0 @@
-## NOTE: This mod's functionality is also included in my [Useful Utilities](https://github.com/doombubbles/useful-utilities#readme) mod, which will receive more frequent updates.
-- Fixed for recent BTD6 versions

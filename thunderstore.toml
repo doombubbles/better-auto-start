@@ -1,0 +1,31 @@
+[package]
+name = "BetterAutoStart"
+namespace = "doombubbles"
+description = "Adds a visual indicator on the Play / Fast Forward button to show whether Auto Start is enabled or disabled. Additionally, right clicking on the button will toggle Auto Start."
+websiteUrl = "https://github.com/doombubbles/BetterAutoStart"
+
+[package.dependencies]
+LavaGang-MelonLoader = "0.7.3"
+doombubbles-Btd6ModHelper = "3.6.5"
+
+[build]
+icon = "./Icon.png"
+readme = "./README.md"
+outdir = "bin"
+
+[[build.copy]]
+source = "./bin/Release/BetterAutoStart.dll"
+target = "BetterAutoStart.dll"
+
+[[build.copy]]
+source = "./CHANGELOG.md"
+target = "./CHANGELOG.md"
+
+[[build.copy]]
+source = "./LICENSE"
+target = "./LICENSE"
+
+[publish]
+repository = "https://thunderstore.io"
+communities = ["bloons-td-6"]
+categories = ["mods"]

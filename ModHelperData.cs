@@ -2,7 +2,7 @@
 
 public class ModHelperData
 {
-    public const string WorksOnVersion = "44.1";
+    public const string WorksOnVersion = "52.2";
     public const string Version = "1.1.3";
     public const string Name = "Better Auto Start";
 
@@ -12,5 +12,6 @@ public class ModHelperData
         "Any Bloons Monkey City fans out there?";
 
     public const string RepoOwner = "doombubbles";
-    public const string RepoName = "better-auto-start";
+    public const string PrevRepoName = "better-auto-start";
+    public const string RepoName = "BetterAutoStart";
 }
